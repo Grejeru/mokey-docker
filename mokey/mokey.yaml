@@ -1,0 +1,36 @@
+---
+dsn: "root:toor_pass@tcp(db:3306)/mokey?parseTime=true"
+driver: "mysql"
+port: 8080
+bind: "0.0.0.0"
+# cert: "/path/to/cert"
+# key: "/path/to/key"
+# min_passwd_len: 8
+auth_key: xxx
+enc_key: xxx
+templates: /usr/share/mokey/templates
+force_2fa: false
+require_question_pwreset: false
+ipahost: "<ipa.example.com>"
+keytab: "/etc/mokey/keytab/mokeyapp.keytab"
+rate_limit: true
+redis: "redis:6379"
+max_requests: 15
+rate_limit_expire: 3600
+smtp_host: "127.0.0.1"
+smtp_port: 25
+email_from: "selfserv@example.com"
+email_sig: "IT Operations"
+email_link_base: "http://selfserv.example.com"
+email_prefix: "Password Service"
+setup_max_age: 86400
+reset_max_age: 3600
+max_attempts: 10
+pgp_sign: false
+# pgp_key: "/path/to/key.gpg"
+# pgp_passphrase: "secret"
+develop: false
+# hydra_client_id: "consent-app"
+# hydra_client_secret: "consent-secret"
+# hydra_cluster_url: "https://localhost:4444"
+...

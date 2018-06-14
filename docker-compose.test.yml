@@ -1,0 +1,49 @@
+version: "3.3"
+services:
+  nginx:
+    build:
+      context: ./nginx
+    container_name: selfserv-nginx
+    hostname: selfserv-nginx
+    expose:
+      - 80
+      - 443
+    networks:
+      - default
+    depends_on:
+      - "mokey"
+  mokey:
+    build:
+      context: ./mokey
+    container_name: selfserv-mokey
+    hostname: selfserv
+    networks:
+      - default
+    expose:
+      - 8080
+    depends_on:
+    - "db"
+    - "redis"
+  redis:
+    image: redis:alpine
+    restart: always
+    container_name: selfserv-redis
+    hostname: selfserv-redis
+    networks:
+      - default
+  db:
+    image: mariadb
+    restart: always
+    container_name: selfserv-db
+    hostname: selfserv-db
+    networks:
+      - default
+    volumes:
+      - type: bind
+        source: ./db
+        target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor_pass
+
+networks:
+  default:
