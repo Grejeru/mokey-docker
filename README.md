@@ -64,7 +64,9 @@ mokey-docker
     └── ssl_params.conf
 ```
 
+```bash
 /docker-compose.yml - line 43 with proper path for db volume data location
 /mokey/mokey.yaml - proper configuration with auth_key, enc_key, ipahost, smtp_*, email_*
 /mokey/start.sh - ipa enrollment command with ipa data
 /nginx/mokey.conf - proper mokey domain
+```
